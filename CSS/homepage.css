@@ -125,6 +125,7 @@ a {
   gap: 25px;
 }
 .fonctionnement .fonctionnement__button-fonction-block {
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
