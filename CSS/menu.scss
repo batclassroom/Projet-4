@@ -1,6 +1,57 @@
-header {
+@mixin btn-menu {
     display: flex;
-    gap: 42px;
+    flex-direction: column;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.header-menu {
+    display: flex;
     justify-content: center;
     align-items: center;
+    height: 63px;
+
+    .fa-arrow-left {
+        font-size: 30px;
+        color: black;
+        margin-right: 30px;
+    }
+
+    .header__logo { 
+    width: 197px;
+    height: 36px;
+    padding: 0px 19px 0px 16px;
+    }
+}
+
+.menu-image {
+    width: 100%;
+    object-fit: cover;
+}
+
+.main-menu {
+    gap: 40px;
+    background: $quaternary-color;
+}
+
+.title-menu {
+    display: flex;
+    padding: 0px 20px;
+    align-items: center;
+    gap: 20px;
+}
+
+.menus {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .menus__card-menu {
+        @include btn-menu();
+    }
+}
+
+.button-commander {
+    @include btn-purple ;
 }

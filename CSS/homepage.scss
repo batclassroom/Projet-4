@@ -9,6 +9,7 @@ $text-grey: var(--Grey, #353535);
 $font-family-logo-title: 'Shrikland';
 $font-family-txt: 'Roboto';
 
+
 @mixin btn-purple {
     display: flex;
     justify-content: center;
@@ -26,8 +27,7 @@ $font-family-txt: 'Roboto';
 
 @mixin btn-fonction {
     display: flex;
-    justify-content: center;
-    width: 100%;
+    justify-content: center; 
     border: transparent;
     gap: 27px;
     border-radius: 20px;
@@ -38,9 +38,6 @@ $font-family-txt: 'Roboto';
     font-weight: 500;
 }
 
-@mixin btn-fonctionnement-shadow {
-    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
-}
 
 @mixin card-restaurant-radius {
     border-radius: 15px;
@@ -51,12 +48,17 @@ $font-family-txt: 'Roboto';
 }
 
 @mixin image-restaurant {
+    width: 100%;
     border-radius: 15px 15px 0px 0px;
+}
+
+@mixin fa-heart {
+    font-size: 22px;
 }
 
 @mixin btn-footer {
     border: transparent;
-    background-color: transparent;
+    background: #9356DC;
     font-size: 16px;
     font-weight: 500;
 }
@@ -110,16 +112,19 @@ body {
     margin-right: auto;
 }
 
+a {
+    color: $link-color;
+}
+
                 /* header */
 
 .header {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 63px;
 
     .header__logo { 
-    display: flex;
     width: 197px;
     height: 36px;
     padding: 0px 19px 0px 16px;
@@ -135,6 +140,7 @@ body {
     align-items: center;
     gap: 17px;
     font-size: 16px;
+    box-shadow: 0px 4px 4px 0px hsla(0, 0%, 0%, 0.25);
 
     .location__location-txt {
         font-weight: 500;
@@ -150,8 +156,10 @@ body {
     background: $quaternary-color;
 
     .reservation__reservation-block {
-        flex-direction: column;
+        display: flex;
         align-items: center;
+        flex-direction: column;
+        align-content: center;
         gap: 20px;
     }
 
@@ -160,6 +168,10 @@ body {
         font-weight: 300;
         color: $text-grey;
     }
+    .reservation__btn-purple {
+        @include btn-purple();
+    }
+
 }
 
             /*Fonctionnement*/
@@ -168,23 +180,25 @@ body {
     align-items: flex-start;
     flex-direction: column;
     box-sizing: border-box;
+    overflow: hidden;
     padding: 48px 20px 68px 20px;
     gap: 25px;
 
     .fonctionnement__button-fonction-block {
+        
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         border: transparent;
         gap: 27px;
         border-radius: 20px;
         padding: 28px 38px 28px 34px;
-        background: $quaternary-color;
-        @include btn-fonctionnement-shadow();
         font-size: 16px;
         font-weight: 500;
     }
 
     .fonctionnement__button-fonction {
-        @include btn-fonction()
+        @include btn-fonction();
     }
 }
 .restaurants {
@@ -196,6 +210,8 @@ body {
     gap: 18px;
     .restaurants__block-restaurants-cards {
         width: 100%;
+        display: flex;
+        flex-direction: column;
         gap: 20px;
     }
     .restaurants__card-restaurant {
@@ -209,18 +225,21 @@ body {
         box-sizing: border-box;
     }
     .restaurants__part-txt-card-restaurant {
+        display: flex;
         justify-content: space-between;
         padding: 16px 25px 12px 13px;
         color: $text-grey;
     }
     .restaurants__txt-card-restaurant {
+        display: flex;
+        flex-direction: column;
         align-items: flex-start;
         font-size: 17px;
         font-weight: 300;
     }
 
     .restaurants__fa-heart {
-        font-size: 22px;
+        @include fa-heart();
     }
 }
             /*Footer*/
@@ -236,17 +255,23 @@ body {
     font-weight: 500;
     .footer__logo-footer {
         font-family: $font-family-logo-title;
+        color: $link-color;
         font-size: 18px;
         font-weight: 400;
     }
     .footer__footer-txt {
+        display: flex;
+        flex-direction: column;
+        color: $link-color;
         gap: 7px;
         align-items: flex-start;
     }
     .footer__block-footer {
+        color: $link-color;
         gap: 10px;
     }
     .footer__button-footer {
-        @include btn-footer()
+        color: $link-color;
+        @include btn-footer();
     }
 }                        
