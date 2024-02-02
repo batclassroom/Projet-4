@@ -185,7 +185,6 @@ a {
     gap: 25px;
 
     .fonctionnement__button-fonction-block {
-        width: 80%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -195,12 +194,13 @@ a {
         padding: 28px 38px 28px 34px;
         font-size: 16px;
         font-weight: 500;
+        .fonctionnement__button-fonction {
+            @include btn-fonction();
+        }
     }
+}    
 
-    .fonctionnement__button-fonction {
-        @include btn-fonction();
-    }
-}
+    
 .restaurants {
     display: flex;
     flex-direction: column;
