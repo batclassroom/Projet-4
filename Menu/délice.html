@@ -10,110 +10,112 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
             integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
-            <link rel="stylesheet" href="../CSS/menu.css">
-            <link rel="stylesheet" href="../CSS/homepage.css">
+    <link rel="stylesheet" href="../CSS/menu.css">
+    <link rel="stylesheet" href="../CSS/homepage.css">
 </head>
 <body>
     <div class="main-content">
-        <header>
+        <header class="header-menu">
             <a href="../index.html">
-            <i class="fa-solid fa-arrow-left"></i>
+                <i class="fa-solid fa-arrow-left"></i>
             </a>
-            <img src="../images/logo/ohmyfood.png" alt="logo ohmyfood">
+            <img class="header__logo" src="../images/logo/ohmyfood.png" alt="logo ohmyfood">
         </header>
-        <img class="menu-image" src="../images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg" alt="">
-        <main>
+        <div class="menu-image">
+            <img class="menu-image" src="../images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg" alt="photo d'un plat">
+            <span class="menu-image__bottom-image"></span>
+        </div>
+        <main class="main-menu">
             <div class="title-menu">
-            <h2>Le délice des sens</h2>
-            <i class="fa-regular fa-heart"></i>
+                <h2>Le délice des sens</h2>
+                <i class="fa-regular fa-heart restaurants__fa-heart"></i>
             </div>
             <section class="menus">
                 <h5 class="green-bar">ENTRÉES</h5>
-                <article class="card-menu">
-                    <h5>Tartare de thon</h5>
-                    <div class="txt-menu">
-                    <p>Assaisonné au yuzu</p>
-                    <p class="price">25€</p>
+                <article class="menus__card-menu">
+                    <h6>Tartare de thon</h6>
+                    <div class="menus__txt-menu">
+                        <p>Assaisonné au yuzu</p>
+                        <p class="menus__price">25€</p>
                     </div>
                 </article>
-                <article class="card-menu">
-                    <h5>Bouchée de homard croustillant</h5>
-                    <div class="txt-menu">
-                    <p>Et sa farandole de petits légumes</p>
-                    <p class="price">35€</p>
+                <article class="menus__card-menu">
+                    <h6>Bouchée de homard croustillant </h6>
+                    <div class="menus__txt-menu">
+                        <p>Et sa farandole de petits légumes</p>
+                        <p class="menus__price">35€</p>
                     </div>
                 </article>
-                <article class="card-menu">
-                    <h5>Velouté de cèpes</h5>
-                    <div class="txt-menu">
-                    <p>Aux truffes</p>
-                    <p class="price">20€</p>
+                <article class="menus__card-menu">
+                    <h6>Velouté de cèpes </h6>
+                    <div class="menus__txt-menu">
+                        <p>Aux truffes</p>
+                        <p class="menus__price">20€</p>
                     </div>
                 </article>
             </section>
             <section class="menus">
                 <h5 class="green-bar">PLATS</h5>
-                <article class="card-menu">
-                    <h5>Poulet rôti aux herbes de Provence</h5>
-                    <div class="txt-menu">
-                    <p>Et sa crème de truffe</p>
-                    <p class="price">40€</p>
+                <article class="menus__card-menu">
+                    <h6>Poulet rôti aux herbes de Provence</h6>
+                    <div class="menus__txt-menu">
+                        <p>Et sa crème de truffe</p>
+                        <p class="menus__price">40€</p>
                     </div>
                 </article>
-                <article class="card-menu">
-                    <h5>Langouste rôtie </h5>
-                    <div class="txt-menu">
-                    <p>Et ses légumes de saison</p>
-                    <p class="price">35€</p>
+                <article class="menus__card-menu">
+                    <h6>Langouste rôtie</h6>
+                    <div class="menus__txt-menu">
+                        <p>Et ses légumes de saison</p>
+                        <p class="menus__price">35€</p>
+                    </div>
                 </article>
-                <article class="card-menu">
-                    <h5>Côte de bœuf Angus</h5>
-                    <div class="txt-menu">
-                    <p>Et sa purée de panais</p>
-                    <p class="price">44€</p>
+                <article class="menus__card-menu">
+                    <h6>Côte de bœuf Angus</h6>
+                    <div class="menus__txt-menu">
+                        <p>Et sa purée de panais</p>
+                        <p class="menus__price">44€</p>
                     </div>
                 </article>
             </section>
             <section class="menus">
                 <h5 class="green-bar">DESSERTS</h5>
-                <article class="card-menu">
-                    <h5>Farandole de desserts</h5>
-                    <div class="txt-menu">
-                    <p>Du chef</p>
-                    <p class="price">18€</p>
+                <article class="menus__card-menu">
+                    <h6>Farandole de desserts</h6>
+                    <div class="menus__txt-menu">
+                        <p>Du chef</p>
+                        <p class="menus__price">18€</p>
                     </div>
                 </article>
-                <article class="card-menu">
-                    <h5>Crème brulée</h5>
-                    <div class="txt-menu">
-                    <p>Revisitée</p>
-                    <p class="price">22€</p>
+                <article class="menus__card-menu">
+                    <h6>Crème brulée</h6>
+                    <div class="menus__txt-menu">
+                        <p>Revisitée</p>
+                        <p class="menus__price">22€</p>
                     </div>
                 </article>
-                <article class="card-menu">
-                    <h5>Tiramisu</h5>
-                    <div class="txt-menu">
-                    <p>À la noisette</p>
-                    <p class="price">23€</p>
+                <article class="menus__card-menu">
+                    <h6>Tiramisu</h6>
+                    <div class="menus__txt-menu">
+                        <p>À la noisette</p>
+                        <p class="menus__price">23€</p>
                     </div>
                 </article>
             </section>
             <div class="block-commander">
-            <button class="button-purple">Commander</button>
+            <button class="commander__btn-purple">Commander</button>
             </div>
         </main>
-        <footer>
-            <a href="#" class="logo-footer">
-                <p class="logo-footer">Ohmyfood</p>
-            </a>
-            <div class="footer-txt">
-                <a class="block-footer" href="#">
+        <footer class="footer">
+            <p class="footer__logo-footer">Ohmyfood</p>
+            <div class="footer__footer-txt">
+                <a class="footer__block-footer" href="#">
                     <i class="fa-solid fa-utensils"></i>
-                    <button class="button-footer">Proposer un restaurant</button>
+                    <p class="button-footer">Proposer un restaurant</p>
                 </a>
-                <a class="block-footer" href="#">
+                <a class="footer__block-footer" href="#">
                     <i class="fa-solid fa-handshake-angle"></i>
-                    <button class="button-footer">Devenir partenaire</button>
+                    <p class="button-footer">Devenir partenaire</p>
                 </a>
                 <a href="#">Mentions Légales</a>
                 <a href="mailto:ohmyfood@contact.com">Contact</a>

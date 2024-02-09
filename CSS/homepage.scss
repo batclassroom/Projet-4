@@ -3,7 +3,7 @@ $secondary-color: #FF79DA;
 $tertiary-color:#99E2D0;
 $quaternary-color: var(--Background, #F6F6F6);
 $location-color: var(--Grey-2, #EAEAEA);
-$link-color: #FFF;
+$white-color: #FFF;
 $text-grey: var(--Grey, #353535);
 
 $font-family-logo-title: 'Shrikland';
@@ -20,13 +20,14 @@ $font-family-txt: 'Roboto';
     border: transparent;
     background: var(--Button-Gradient, linear-gradient(193deg, #9356DC -11.44%, #FF79DA 123.93%));
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
-    color: $link-color;
+    color: $white-color;
     font-size: 16px;
     font-weight: 500;
 }
 
 @mixin btn-fonction {
     display: flex;
+    width: 100%;
     justify-content: center; 
     border: transparent;
     gap: 27px;
@@ -91,6 +92,11 @@ h5 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+h6 {
     font-size: 18px;
     font-weight: 500;
 }
@@ -106,14 +112,15 @@ body {
 
 .main-content {
     width: 100%;
-    max-width: 768px;
+    max-width: 1440px;
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
 }
 
 a {
-    color: $link-color;
+    text-decoration: none;
+    color: $white-color;
 }
 
                 /* header */
@@ -172,35 +179,69 @@ a {
         @include btn-purple();
     }
 
-}
+}           
 
             /*Fonctionnement*/
+.fa-solid {
+    &:hover {
+        color: $primary-color;
+    }
+}
+
 .fonctionnement {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     box-sizing: border-box;
-    overflow: hidden;
     padding: 48px 20px 68px 20px;
     gap: 25px;
+    @media (min-width: 1024px) {
+        height: 228px;
+        padding: 50px 180px 50px 180px;
+    }
 
     .fonctionnement__button-fonction-block {
         display: flex;
         flex-direction: column;
         justify-content: center;
         border: transparent;
+        padding-left: 10px;
+        width: 100%;
         gap: 27px;
         border-radius: 20px;
-        padding: 28px 38px 28px 34px;
         font-size: 16px;
         font-weight: 500;
+        @media (min-width: 1024px) {
+            display: flex;
+            flex-direction: row;
+            padding-left: 0;
+        }
         .fonctionnement__button-fonction {
+            position: relative;
             @include btn-fonction();
+        }
+        .fonctionnement__numbers {
+            display: flex;
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-radius: 25px;
+            background-color: $primary-color;
+            color: $white-color;
+            justify-content: center;
+            align-items: center;
+            left: -10px;
         }
     }
 }    
-
-    
+                /* Restaurant */
+.fa-heart {
+    @include fa-heart();
+    &:hover{
+        color: $primary-color;
+    } 
+}
+                
 .restaurants {
     display: flex;
     flex-direction: column;
@@ -208,21 +249,50 @@ a {
     background-color: $quaternary-color;
     align-items: flex-start;
     gap: 18px;
+    .restaurants__card-size {
+        width: 100%;
+    }
     .restaurants__block-restaurants-cards {
         width: 100%;
         display: flex;
         flex-direction: column;
         gap: 20px;
     }
+    .restaurants__version-pc{
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        @media (min-width: 1024px) {
+            flex-direction: row;
+        }
+    }
     .restaurants__card-restaurant {
+        position: relative;
         @include card-restaurant-radius();
         @include card-restaurant-shadow;
+
     }
     .restaurants__restaurant-image {
         height: 231px;
         @include image-restaurant();
         object-fit: cover;
         box-sizing: border-box;
+    }
+    .restaurants__badge {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 80px;
+        height: 29px;
+        margin-right: 13px;
+        right: 0;
+        top: 0;
+        margin-top: 13px;
+        background: $tertiary-color;
+        color: hsla(165, 100%, 26%, 1);
+        font-weight: 500;
+        font-size: 14px;
     }
     .restaurants__part-txt-card-restaurant {
         display: flex;
@@ -238,10 +308,7 @@ a {
         font-weight: 300;
     }
 
-    .restaurants__fa-heart {
-        @include fa-heart();
-    }
-}
+}    
             /*Footer*/
 .footer {
     display: flex;
@@ -250,28 +317,36 @@ a {
     padding: 22px 25px 22px 25px;
     gap: 16px;
     background: $text-grey;
-    color: $link-color;
+    color: $white-color;
     font-size: 16px;
     font-weight: 500;
+    @media (min-width: 1024px) {
+        flex-direction: row;
+        justify-content: flex-end;   
+    }
     .footer__logo-footer {
         font-family: $font-family-logo-title;
-        color: $link-color;
+        font-style: italic;
         font-size: 18px;
         font-weight: 400;
     }
     .footer__footer-txt {
         display: flex;
         flex-direction: column;
-        color: $link-color;
+        color: $white-color;
         gap: 7px;
         align-items: flex-start;
+        @media (min-width: 1024px) {
+            flex-direction: row;
+        }
     }
     .footer__block-footer {
-        color: $link-color;
+        display: flex;
         gap: 10px;
     }
-    .footer__button-footer {
-        color: $link-color;
-        @include btn-footer();
-    }
-}                        
+    
+}   
+
+            /* Media queries*/
+
+
