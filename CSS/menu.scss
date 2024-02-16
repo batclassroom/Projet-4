@@ -5,22 +5,26 @@ $quaternary-color: var(--Background, #F6F6F6);
 $location-color: var(--Grey-2, #EAEAEA);
 $white-color: #FFF;
 $text-grey: var(--Grey, #353535);
+$button-hover-color: linear-gradient(0deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.15) 100%), linear-gradient(201deg, #9356DC -5.2%, #FF79DA 110.74%);
 
 $font-family-logo-title: 'Shrikland';
 $font-family-txt: 'Roboto';
 
+@keyframes progress-menu {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
 
 
 @mixin btn-menu {
-    display: flex;
-    flex-direction: column;
+    height: 69px;
+    white-space: nowrap;
+    overflow: hidden;
     background-color: $white-color;
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
     font-size: 15px;
     font-weight: 300;
     border-radius: 20px;
-    padding: 15px;
-    gap: 5px;
 }
 
 @mixin btn-purple {
@@ -36,18 +40,34 @@ $font-family-txt: 'Roboto';
     color: $white-color;
     font-size: 16px;
     font-weight: 500;
+    &:hover {
+        background: $button-hover-color;
+        transform: scale(1.1);
+    }
 }
 
-.header-menu {
+@mixin green-validation {
+    display: flex;
+    width: 59px;
+    height: 69px;
+    background: $tertiary-color;
+    border-radius: 0px 15px 15px 0px;
+}
+
+.header-menus {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     height: 63px;
 
     .fa-arrow-left {
         font-size: 30px;
         color: black;
-        margin-right: 30px;
+        position: absolute;
+        left: 17px;
+        bottom: 13px;
+        
     }
 
     .header__logo { 
@@ -57,31 +77,51 @@ $font-family-txt: 'Roboto';
     }
 }
 
-.menu-image {
+.menus-image {
     width: 100%;
     object-fit: cover;
     position: relative;
-    .menu-image__bottom-image{
+    display: flex;
+    justify-content: center;
+    @media (min-width: 1221px) {
+        height: 383px;
+    }
+    .menus-image__bottom-image{
         display: flex;
         width: 100%;
         position: absolute;
-        height: 50px;
+        height: 51px;
         background-color: $quaternary-color;
         bottom: 0;
         border-radius: 40px 40px 0px 0px;
+        @media (min-width: 1221px) {
+            width: 1221px;
+        }
+    }
+}
+.main-menus {
+    @media (min-width: 1221px) {
+    display: flex;
+    justify-content: center;
     }
 }
 
-.main-menu {
+.block-menus {
     gap: 40px;
     background-color: $quaternary-color;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px 10px 40px 10px;
+    @media (min-width: 1221px) {
+        width: 1221px;
+        align-items: center;
+        padding: 0;
+        padding-bottom: 40px;
+    }
 }
 
-.title-menu {
+.title-menus {
     width: 100%;
     display: flex;
     font-style: italic;
@@ -99,12 +139,23 @@ $font-family-txt: 'Roboto';
 
 .menus {
     display: flex;
-    width: 100%;
     flex-direction: column;
     gap: 12px;
+
+    @media (min-width: 1221px) {
+        width: 634px;
+    }
     .menus__card-menu {
+        display: flex;
+        flex-direction: row;
         align-items: flex-start;
-        @include btn-menu()
+        @include btn-menu();
+    }
+    .menus__block-text-menu {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        padding: 15px;
     }
     .menus__title-menu-card {
         font-size: 18px;
@@ -115,9 +166,18 @@ $font-family-txt: 'Roboto';
         width: 100%;
         justify-content: space-between;
     }
+    .txt-length {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
     .menus__price {
         font-size: 15px;
         font-weight: 700;
+    }
+    .test {
+        display: flex;
+        height: 50px;
+        align-items: center;
     }
 }
 

@@ -1,14 +1,20 @@
 $primary-color: #9356DC;
 $secondary-color: #FF79DA;
 $tertiary-color:#99E2D0;
+$gradient-color: var(--Button-Gradient, linear-gradient(193deg, #9356DC -11.44%, #FF79DA 123.93%));
 $quaternary-color: var(--Background, #F6F6F6);
 $location-color: var(--Grey-2, #EAEAEA);
 $white-color: #FFF;
 $text-grey: var(--Grey, #353535);
+$button-hover-color: linear-gradient(0deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.15) 100%), linear-gradient(201deg, #9356DC -5.2%, #FF79DA 110.74%);
 
 $font-family-logo-title: 'Shrikland';
 $font-family-txt: 'Roboto';
 
+@keyframes progress-menu {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
 
 @mixin btn-purple {
     display: flex;
@@ -18,25 +24,35 @@ $font-family-txt: 'Roboto';
     height: 50px;
     border-radius: 25px;
     border: transparent;
-    background: var(--Button-Gradient, linear-gradient(193deg, #9356DC -11.44%, #FF79DA 123.93%));
+    background: $gradient-color;
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
     color: $white-color;
     font-size: 16px;
     font-weight: 500;
+    &:hover {
+        background: $button-hover-color;
+        transform: scale(1.1);
+    }
 }
 
 @mixin btn-fonction {
     display: flex;
     width: 100%;
-    justify-content: center; 
+    height: 72px;
+    justify-content: center;
+    align-items: center; 
     border: transparent;
     gap: 27px;
     border-radius: 20px;
-    padding: 28px 38px 28px 34px;
     background: $quaternary-color;
     box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
     font-size: 16px;
     font-weight: 500;
+    &:hover {
+        transform: scale(1.03);
+        color: $primary-color;
+    }
+
 }
 
 
@@ -75,6 +91,7 @@ h2 {
     font-family: $font-family-logo-title;
     font-size: 28px;
     font-weight: 400;
+    color: var(--Black, #101010);
 }
 
 h3 {
@@ -89,14 +106,12 @@ h4 {
 }
 
 h5 {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     font-size: 16px;
     font-weight: 300;
 }
 
 h6 {
+    font-family: $font-family-txt;
     font-size: 18px;
     font-weight: 500;
 }
@@ -112,7 +127,6 @@ body {
 
 .main-content {
     width: 100%;
-    max-width: 1440px;
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
@@ -161,6 +175,9 @@ a {
     padding: 30px 0px 57px 0px;
     justify-content: center;
     background: $quaternary-color;
+    @media (min-width: 1221px) {
+        padding: 30px 0px 30px 0px;
+    }
 
     .reservation__reservation-block {
         display: flex;
@@ -182,11 +199,7 @@ a {
 }           
 
             /*Fonctionnement*/
-.fa-solid {
-    &:hover {
-        color: $primary-color;
-    }
-}
+
 
 .fonctionnement {
     display: flex;
@@ -195,9 +208,10 @@ a {
     box-sizing: border-box;
     padding: 48px 20px 68px 20px;
     gap: 25px;
-    @media (min-width: 1024px) {
+    @media (min-width: 1221px) {
         height: 228px;
         padding: 50px 180px 50px 180px;
+        
     }
 
     .fonctionnement__button-fonction-block {
@@ -205,16 +219,16 @@ a {
         flex-direction: column;
         justify-content: center;
         border: transparent;
+        box-sizing: border-box;
         padding-left: 10px;
         width: 100%;
         gap: 27px;
         border-radius: 20px;
         font-size: 16px;
         font-weight: 500;
-        @media (min-width: 1024px) {
+        @media (min-width: 1221px) {
             display: flex;
             flex-direction: row;
-            padding-left: 0;
         }
         .fonctionnement__button-fonction {
             position: relative;
@@ -234,14 +248,12 @@ a {
         }
     }
 }    
-                /* Restaurant */
+                /* Restaurant */             
+                
 .fa-heart {
     @include fa-heart();
-    &:hover{
-        color: $primary-color;
-    } 
 }
-                
+            
 .restaurants {
     display: flex;
     flex-direction: column;
@@ -249,6 +261,9 @@ a {
     background-color: $quaternary-color;
     align-items: flex-start;
     gap: 18px;
+    @media (min-width: 1221px) {
+        padding: 30px 180px;
+    }
     .restaurants__card-size {
         width: 100%;
     }
@@ -257,20 +272,37 @@ a {
         display: flex;
         flex-direction: column;
         gap: 20px;
+        @media (min-width: 1221px) {
+            gap: 50px;
+        }
     }
     .restaurants__version-pc{
         display: flex;
         flex-direction: column;
         gap: 18px;
-        @media (min-width: 1024px) {
+        @media (min-width: 1221px) {
             flex-direction: row;
+            gap: 100px;
         }
     }
     .restaurants__card-restaurant {
         position: relative;
         @include card-restaurant-radius();
         @include card-restaurant-shadow;
-
+        &:hover {
+            transform: scale(1.03);
+            .fa-solid.fa-heart{
+                display: initial;
+                animation: progress-menu 1s;
+            }
+            .fa-regular.fa-heart {
+                display: none;
+            }
+        }
+        .fa-solid.fa-heart {
+            display: none;
+            color: $primary-color;
+        }   
     }
     .restaurants__restaurant-image {
         height: 231px;
@@ -320,33 +352,43 @@ a {
     color: $white-color;
     font-size: 16px;
     font-weight: 500;
-    @media (min-width: 1024px) {
-        flex-direction: row;
-        justify-content: flex-end;   
+    @media (min-width: 1221px) {
+        display: flex;
+        flex-direction: row-reverse;
+        padding: 46px 25px 30px 25px;
     }
     .footer__logo-footer {
+        display: flex;
+        width: 138px;
+        height: 27px;
         font-family: $font-family-logo-title;
         font-style: italic;
         font-size: 18px;
         font-weight: 400;
+        
     }
     .footer__footer-txt {
+        width: 190px;
         display: flex;
+        align-items: flex-start;
         flex-direction: column;
         color: $white-color;
         gap: 7px;
-        align-items: flex-start;
-        @media (min-width: 1024px) {
+        @media (min-width: 1221px) {
             flex-direction: row;
+            width: 661px;
         }
     }
     .footer__block-footer {
         display: flex;
-        gap: 10px;
-    }
+        gap: 11px;
+        @media (min-width: 1221px) {
+            width: 186px;
+        }
+    }    
     
 }   
 
-            /* Media queries*/
+
 
 

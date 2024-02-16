@@ -1,3 +1,11 @@
+@keyframes progress-menu {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
 * {
   font-family: "Roboto";
   margin: 0;
@@ -9,6 +17,7 @@ h2 {
   font-family: "Shrikland";
   font-size: 28px;
   font-weight: 400;
+  color: var(--Black, #101010);
 }
 
 h3 {
@@ -23,14 +32,12 @@ h4 {
 }
 
 h5 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   font-size: 16px;
   font-weight: 300;
 }
 
 h6 {
+  font-family: "Roboto";
   font-size: 18px;
   font-weight: 500;
 }
@@ -46,7 +53,6 @@ body {
 
 .main-content {
   width: 100%;
-  max-width: 1440px;
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
@@ -93,6 +99,11 @@ a {
   justify-content: center;
   background: var(--Background, #F6F6F6);
 }
+@media (min-width: 1221px) {
+  .reservation {
+    padding: 30px 0px 30px 0px;
+  }
+}
 .reservation .reservation__reservation-block {
   display: flex;
   align-items: center;
@@ -119,12 +130,12 @@ a {
   font-size: 16px;
   font-weight: 500;
 }
-
-/*Fonctionnement*/
-.fa-solid:hover {
-  color: #9356DC;
+.reservation .reservation__btn-purple:hover {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.15) 100%), linear-gradient(201deg, #9356DC -5.2%, #FF79DA 110.74%);
+  transform: scale(1.1);
 }
 
+/*Fonctionnement*/
 .fonctionnement {
   display: flex;
   align-items: flex-start;
@@ -133,7 +144,7 @@ a {
   padding: 48px 20px 68px 20px;
   gap: 25px;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1221px) {
   .fonctionnement {
     height: 228px;
     padding: 50px 180px 50px 180px;
@@ -144,6 +155,7 @@ a {
   flex-direction: column;
   justify-content: center;
   border: transparent;
+  box-sizing: border-box;
   padding-left: 10px;
   width: 100%;
   gap: 27px;
@@ -151,26 +163,30 @@ a {
   font-size: 16px;
   font-weight: 500;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1221px) {
   .fonctionnement .fonctionnement__button-fonction-block {
     display: flex;
     flex-direction: row;
-    padding-left: 0;
   }
 }
 .fonctionnement .fonctionnement__button-fonction-block .fonctionnement__button-fonction {
   position: relative;
   display: flex;
   width: 100%;
+  height: 72px;
   justify-content: center;
+  align-items: center;
   border: transparent;
   gap: 27px;
   border-radius: 20px;
-  padding: 28px 38px 28px 34px;
   background: var(--Background, #F6F6F6);
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
   font-size: 16px;
   font-weight: 500;
+}
+.fonctionnement .fonctionnement__button-fonction-block .fonctionnement__button-fonction:hover {
+  transform: scale(1.03);
+  color: #9356DC;
 }
 .fonctionnement .fonctionnement__button-fonction-block .fonctionnement__numbers {
   display: flex;
@@ -189,9 +205,6 @@ a {
 .fa-heart {
   font-size: 22px;
 }
-.fa-heart:hover {
-  color: #9356DC;
-}
 
 .restaurants {
   display: flex;
@@ -200,6 +213,11 @@ a {
   background-color: var(--Background, #F6F6F6);
   align-items: flex-start;
   gap: 18px;
+}
+@media (min-width: 1221px) {
+  .restaurants {
+    padding: 30px 180px;
+  }
 }
 .restaurants .restaurants__card-size {
   width: 100%;
@@ -210,14 +228,20 @@ a {
   flex-direction: column;
   gap: 20px;
 }
+@media (min-width: 1221px) {
+  .restaurants .restaurants__block-restaurants-cards {
+    gap: 50px;
+  }
+}
 .restaurants .restaurants__version-pc {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1221px) {
   .restaurants .restaurants__version-pc {
     flex-direction: row;
+    gap: 100px;
   }
 }
 .restaurants .restaurants__card-restaurant {
@@ -225,11 +249,26 @@ a {
   border-radius: 15px;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
 }
+.restaurants .restaurants__card-restaurant:hover {
+  transform: scale(1.03);
+}
+.restaurants .restaurants__card-restaurant:hover .fa-solid.fa-heart {
+  display: initial;
+  animation: progress-menu 1s;
+}
+.restaurants .restaurants__card-restaurant:hover .fa-regular.fa-heart {
+  display: none;
+}
+.restaurants .restaurants__card-restaurant .fa-solid.fa-heart {
+  display: none;
+  color: #9356DC;
+}
 .restaurants .restaurants__restaurant-image {
   height: 231px;
   width: 100%;
   border-radius: 15px 15px 0px 0px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   box-sizing: border-box;
 }
 .restaurants .restaurants__badge {
@@ -274,33 +313,42 @@ a {
   font-size: 16px;
   font-weight: 500;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1221px) {
   .footer {
-    flex-direction: row;
-    justify-content: flex-end;
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 46px 25px 30px 25px;
   }
 }
 .footer .footer__logo-footer {
+  display: flex;
+  width: 138px;
+  height: 27px;
   font-family: "Shrikland";
   font-style: italic;
   font-size: 18px;
   font-weight: 400;
 }
 .footer .footer__footer-txt {
+  width: 190px;
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
   color: #FFF;
   gap: 7px;
-  align-items: flex-start;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1221px) {
   .footer .footer__footer-txt {
     flex-direction: row;
+    width: 661px;
   }
 }
 .footer .footer__block-footer {
   display: flex;
-  gap: 10px;
+  gap: 11px;
 }
-
-/* Media queries*//*# sourceMappingURL=homepage.css.map */
+@media (min-width: 1221px) {
+  .footer .footer__block-footer {
+    width: 186px;
+  }
+}/*# sourceMappingURL=homepage.css.map */
