@@ -11,10 +11,10 @@ $button-hover-color: linear-gradient(0deg, rgba(255, 255, 255, 0.15) 0%, rgba(25
 $font-family-logo-title: 'Shrikland';
 $font-family-txt: 'Roboto';
 
-@keyframes progress-menu {
-    from { transform: scaleX(0); }
-    to { transform: scaleX(1); }
-}
+@keyframes apparition-heart {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
 
 @mixin btn-purple {
     display: flex;
@@ -87,34 +87,34 @@ $font-family-txt: 'Roboto';
     text-align: center;
 }
 
-h2 {
+.txt-size-1-h {
     font-family: $font-family-logo-title;
     font-size: 28px;
     font-weight: 400;
     color: var(--Black, #101010);
 }
 
-h3 {
-    font-family: $font-family-txt;
+.txt-size-2-h {
     font-size: 24px;
     font-weight: 700;
-}
+} 
 
-h4 {
+.txt-size-3-h {
     font-size: 18px;
     font-weight: 700;
 }
 
-h5 {
+.txt-size-4-h {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.txt-size-5-h {
     font-size: 16px;
     font-weight: 300;
 }
 
-h6 {
-    font-family: $font-family-txt;
-    font-size: 18px;
-    font-weight: 500;
-}
+
 
 body {
     display: flex;
@@ -136,6 +136,52 @@ a {
     text-decoration: none;
     color: $white-color;
 }
+                /* loader */
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: $white-color;
+    transform-origin: 50% bottom;
+    animation: loader 1s ease forwards;
+    animation-delay: 1s;
+  }
+
+  .loader-letter {
+    font-size: 10vw;
+    color: $primary-color;
+    animation: flash  1s linear forwards;
+  }
+  
+  @keyframes loader {
+    from { transform: scaleY(1); }
+    to { transform: scaleY(0); }
+   }
+   @keyframes flash {
+        0% {
+            color: $primary-color;
+            text-shadow : 0 0 80px $primary-color;
+        }
+        50% {
+            color: $secondary-color;
+            text-shadow : 0 0 80px $secondary-color;
+        }
+        70% {
+            color: $tertiary-color;
+            text-shadow : 0 0 80px $tertiary-color;
+        }
+        100% { 
+            color: white;
+            text-shadow : 0 0 80px white;
+        }
+
+   }
+
 
                 /* header */
 
@@ -293,7 +339,8 @@ a {
             transform: scale(1.03);
             .fa-solid.fa-heart{
                 display: initial;
-                animation: progress-menu 1s;
+                transform-origin: bottom 50%;
+                animation: apparition-heart 500ms ease forwards;
             }
             .fa-regular.fa-heart {
                 display: none;

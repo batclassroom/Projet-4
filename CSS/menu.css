@@ -1,4 +1,12 @@
-@keyframes progress-menu {
+@keyframes apparition-menu {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes apparition-green-validation {
   from {
     transform: scaleX(0);
   }
@@ -28,8 +36,7 @@
 
 .menus-image {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   position: relative;
   display: flex;
   justify-content: center;
@@ -98,6 +105,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
 }
 @media (min-width: 1221px) {
   .menus {
@@ -107,23 +115,58 @@
 .menus .menus__card-menu {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  height: 69px;
   white-space: nowrap;
-  overflow: hidden;
+  box-sizing: border-box;
   background-color: #FFF;
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
   font-size: 15px;
   font-weight: 300;
   border-radius: 20px;
+  transform-origin: 50% bottom;
+  animation: apparition-menu 500ms;
+}
+.menus .menus__card-menu:hover {
+  transform: scale(1.05);
+}
+@media (max-width: 1221px) {
+  .menus .menus__card-menu:hover {
+    transform: scale(1.01);
+  }
+}
+.menus .menus__card-menu:hover .menus__green-validation {
+  display: flex;
+  background-color: #99E2D0;
+  width: 59px;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0px 15px 15px 0px;
+  transform-origin: right 50%;
+  animation: apparition-green-validation 500ms;
+}
+.menus .menus__card-menu:hover .fa-circle-check {
+  display: initial;
 }
 .menus .menus__block-text-menu {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: flex-start;
   padding: 15px;
+  gap: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
 }
-.menus .menus__title-menu-card {
+.menus .menus__block-text-menu:hover {
+  transition: transform 2s ease;
+}
+.menus .menus__title-card {
+  text-align: start;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: "Roboto";
   font-size: 18px;
   font-weight: 500;
 }
@@ -140,10 +183,12 @@
   font-size: 15px;
   font-weight: 700;
 }
-.menus .test {
-  display: flex;
-  height: 50px;
-  align-items: center;
+.menus .fa-circle-check {
+  display: none;
+  background-color: #99E2D0;
+  color: #FFF;
+  border-radius: 50%;
+  font-size: 22px;
 }
 
 .block-commander {

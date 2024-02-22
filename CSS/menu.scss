@@ -10,21 +10,33 @@ $button-hover-color: linear-gradient(0deg, rgba(255, 255, 255, 0.15) 0%, rgba(25
 $font-family-logo-title: 'Shrikland';
 $font-family-txt: 'Roboto';
 
-@keyframes progress-menu {
+@keyframes apparition-menu {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+
+@keyframes apparition-green-validation {
     from { transform: scaleX(0); }
     to { transform: scaleX(1); }
 }
 
-
 @mixin btn-menu {
-    height: 69px;
     white-space: nowrap;
-    overflow: hidden;
+    box-sizing: border-box;
     background-color: $white-color;
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
     font-size: 15px;
     font-weight: 300;
     border-radius: 20px;
+    transform-origin: 50% bottom;
+    animation: apparition-menu 500ms;
+    
+    &:hover {   
+        transform: scale(1.05);
+        @media (max-width: 1221px) {
+            transform: scale(1.01);
+        }
+    }
 }
 
 @mixin btn-purple {
@@ -49,7 +61,7 @@ $font-family-txt: 'Roboto';
 @mixin green-validation {
     display: flex;
     width: 59px;
-    height: 69px;
+    height: auto;
     background: $tertiary-color;
     border-radius: 0px 15px 15px 0px;
 }
@@ -141,23 +153,51 @@ $font-family-txt: 'Roboto';
     display: flex;
     flex-direction: column;
     gap: 12px;
-
+    width: 100%;
     @media (min-width: 1221px) {
         width: 634px;
     }
     .menus__card-menu {
         display: flex;
         flex-direction: row;
-        align-items: flex-start;
         @include btn-menu();
+        &:hover {
+            .menus__green-validation {
+            display: flex;
+            background-color: $tertiary-color;
+            width: 59px;
+            height: auto;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0px 15px 15px 0px;
+            transform-origin: right 50%;
+            animation: apparition-green-validation 500ms;    
+            }
+            .fa-circle-check {
+                display: initial;
+            }
+        }
     }
     .menus__block-text-menu {
+        width: 100%;
         display: flex;
         flex-direction: column;
-        align-content: center;
+        align-items: flex-start;
         padding: 15px;
+        gap: 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        box-sizing: border-box;
+        &:hover {
+            transition: transform 2s ease;
+        }
     }
-    .menus__title-menu-card {
+    .menus__title-card {
+        text-align: start;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-family: $font-family-txt;
         font-size: 18px;
         font-weight: 500;
     }
@@ -173,11 +213,13 @@ $font-family-txt: 'Roboto';
     .menus__price {
         font-size: 15px;
         font-weight: 700;
-    }
-    .test {
-        display: flex;
-        height: 50px;
-        align-items: center;
+    }   
+    .fa-circle-check {
+        display: none;
+        background-color: $tertiary-color;
+        color: $white-color;
+        border-radius: 50%;
+        font-size: 22px;
     }
 }
 
