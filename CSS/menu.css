@@ -132,7 +132,7 @@
   width: 100%;
   justify-content: space-between;
 }
-.menus .txt-length {
+.menus .menus__txt-length {
   overflow: hidden;
   text-overflow: ellipsis;
 }
