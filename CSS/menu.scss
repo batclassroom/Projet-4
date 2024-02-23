@@ -31,12 +31,12 @@ $font-family-txt: 'Roboto';
     transform-origin: 50% bottom;
     animation: apparition-menu 500ms;
     
-    &:hover {   
-        transform: scale(1.05);
-        @media (max-width: 1221px) {
-            transform: scale(1.01);
-        }
-    }
+    // &:hover {   
+    //     transform: scale(1.05);
+    //     @media (max-width: 1221px) {
+    //         transform: scale(1.01);
+    //     }
+    // }
 }
 
 @mixin btn-purple {
@@ -60,7 +60,7 @@ $font-family-txt: 'Roboto';
 
 @mixin green-validation {
     display: flex;
-    width: 59px;
+    width: 60px;
     height: auto;
     background: $tertiary-color;
     border-radius: 0px 15px 15px 0px;
@@ -140,6 +140,11 @@ $font-family-txt: 'Roboto';
     justify-content: center;
     align-items: center;
     gap: 20px;
+    .restaurants__fa-heart {
+        position: relative;
+        margin-left: 25px;
+        animation: apparition-heart 2s ease forwards;
+    }
 }
 
 .green-bar {
@@ -171,7 +176,7 @@ $font-family-txt: 'Roboto';
             justify-content: center;
             border-radius: 0px 15px 15px 0px;
             transform-origin: right 50%;
-            animation: apparition-green-validation 500ms;    
+            animation: apparition-green-validation 630ms;    
             }
             .fa-circle-check {
                 display: initial;

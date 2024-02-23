@@ -12,8 +12,8 @@ $font-family-logo-title: 'Shrikland';
 $font-family-txt: 'Roboto';
 
 @keyframes apparition-heart {
-    from { transform: scaleY(0); }
-    to { transform: scaleY(1); }
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
 @mixin btn-purple {
@@ -71,6 +71,8 @@ $font-family-txt: 'Roboto';
 
 @mixin fa-heart {
     font-size: 22px;
+    position: absolute;
+    right: 25px;
 }
 
 @mixin btn-footer {
@@ -340,15 +342,18 @@ a {
             .fa-solid.fa-heart{
                 display: initial;
                 transform-origin: bottom 50%;
-                animation: apparition-heart 500ms ease forwards;
+                animation: apparition-heart 2s ease forwards;
             }
-            .fa-regular.fa-heart {
-                display: none;
-            }
+            // .fa-regular.fa-heart {
+            //     display: none;
+            // }
         }
         .fa-solid.fa-heart {
             display: none;
-            color: $primary-color;
+            background: $gradient-color;
+            background-clip: text;
+            color: transparent;
+            opacity: 1;
         }   
     }
     .restaurants__restaurant-image {

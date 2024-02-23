@@ -36,7 +36,8 @@
 
 .menus-image {
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   position: relative;
   display: flex;
   justify-content: center;
@@ -93,6 +94,11 @@
   align-items: center;
   gap: 20px;
 }
+.title-menus .restaurants__fa-heart {
+  position: relative;
+  margin-left: 25px;
+  animation: apparition-heart 2s ease forwards;
+}
 
 .green-bar {
   width: 40px;
@@ -125,14 +131,6 @@
   transform-origin: 50% bottom;
   animation: apparition-menu 500ms;
 }
-.menus .menus__card-menu:hover {
-  transform: scale(1.05);
-}
-@media (max-width: 1221px) {
-  .menus .menus__card-menu:hover {
-    transform: scale(1.01);
-  }
-}
 .menus .menus__card-menu:hover .menus__green-validation {
   display: flex;
   background-color: #99E2D0;
@@ -142,7 +140,7 @@
   justify-content: center;
   border-radius: 0px 15px 15px 0px;
   transform-origin: right 50%;
-  animation: apparition-green-validation 500ms;
+  animation: apparition-green-validation 630ms;
 }
 .menus .menus__card-menu:hover .fa-circle-check {
   display: initial;
