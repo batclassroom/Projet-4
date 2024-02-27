@@ -2,6 +2,7 @@ $primary-color: #9356DC;
 $secondary-color: #FF79DA;
 $tertiary-color:#99E2D0;
 $quaternary-color: var(--Background, #F6F6F6);
+$gradient-color: var(--Button-Gradient, linear-gradient(193deg, #9356DC -11.44%, #FF79DA 123.93%));
 $location-color: var(--Grey-2, #EAEAEA);
 $white-color: #FFF;
 $text-grey: var(--Grey, #353535);
@@ -10,9 +11,14 @@ $button-hover-color: linear-gradient(0deg, rgba(255, 255, 255, 0.15) 0%, rgba(25
 $font-family-logo-title: 'Shrikland';
 $font-family-txt: 'Roboto';
 
+@keyframes apparition-heart {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
 @keyframes apparition-menu {
-    from { transform: scaleY(0); }
-    to { transform: scaleY(1); }
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
   }
 
 @keyframes apparition-green-validation {
@@ -28,15 +34,6 @@ $font-family-txt: 'Roboto';
     font-size: 15px;
     font-weight: 300;
     border-radius: 20px;
-    transform-origin: 50% bottom;
-    animation: apparition-menu 500ms;
-    
-    // &:hover {   
-    //     transform: scale(1.05);
-    //     @media (max-width: 1221px) {
-    //         transform: scale(1.01);
-    //     }
-    // }
 }
 
 @mixin btn-purple {
@@ -92,27 +89,16 @@ $font-family-txt: 'Roboto';
 .menus-image {
     width: 100%;
     object-fit: cover;
-    position: relative;
     display: flex;
     justify-content: center;
-    @media (min-width: 1221px) {
+    @media (min-width: 1200px) {
         height: 383px;
-    }
-    .menus-image__bottom-image{
-        display: flex;
-        width: 100%;
-        position: absolute;
-        height: 51px;
-        background-color: $quaternary-color;
-        bottom: 0;
-        border-radius: 40px 40px 0px 0px;
-        @media (min-width: 1221px) {
-            width: 1221px;
-        }
     }
 }
 .main-menus {
-    @media (min-width: 1221px) {
+    position: relative;
+    margin-top: -51px;
+    @media (min-width: 1200px) {
     display: flex;
     justify-content: center;
     }
@@ -124,28 +110,45 @@ $font-family-txt: 'Roboto';
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px 10px 40px 10px;
-    @media (min-width: 1221px) {
-        width: 1221px;
+    padding: 51px 10px 40px 10px;
+    border-radius: 40px 40px 0px 0px;
+    @media (min-width: 1200px) {
+        width: 1200px;
         align-items: center;
-        padding: 0;
-        padding-bottom: 40px;
+        padding: 51px 0px 40px 0px;
     }
 }
 
-.title-menus {
+.block-title {
+    display: flex;
     width: 100%;
+    justify-content: center;
+}
+
+.title-menus {
+    width: 341px;
+    position: relative;
     display: flex;
     font-style: italic;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    .restaurants__fa-heart {
-        position: relative;
-        margin-left: 25px;
-        animation: apparition-heart 2s ease forwards;
-    }
+    
+    &:active {
+        .fa-solid{
+        display: initial;        
+        animation: apparition-heart ease forwards;
+        }
+    }    
+    .fa-solid {
+        display: none;
+        background: $gradient-color;
+        background-clip: text;
+        color: transparent;
+        opacity: 1;
+    }   
+    
 }
+
 
 .green-bar {
     width: 40px;
@@ -153,13 +156,25 @@ $font-family-txt: 'Roboto';
     border-bottom: solid 3px $tertiary-color;
     height: 27px; 
 }
+.apparition-1 {
+    transform-origin: left 50%;
+    animation: apparition-menu 1s;
+}
+.apparition-2 {
+    transform-origin: left 50%;
+    animation: apparition-menu 1.5s;
+}
+.apparition-3 {
+    transform-origin: left 50%;
+    animation: apparition-menu 2s;
+}
 
 .menus {
     display: flex;
     flex-direction: column;
     gap: 12px;
     width: 100%;
-    @media (min-width: 1221px) {
+    @media (min-width: 1200px) {
         width: 634px;
     }
     .menus__card-menu {
@@ -193,9 +208,6 @@ $font-family-txt: 'Roboto';
         overflow: hidden;
         text-overflow: ellipsis;
         box-sizing: border-box;
-        &:hover {
-            transition: transform 2s ease;
-        }
     }
     .menus__title-card {
         text-align: start;
