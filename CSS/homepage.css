@@ -302,14 +302,12 @@ a {
 }
 .restaurants .restaurants__card-restaurant:hover .fa-solid.fa-heart {
   display: initial;
-  transform-origin: bottom 50%;
   animation: apparition-heart 2s ease forwards;
 }
 .restaurants .restaurants__card-restaurant .fa-solid.fa-heart {
   display: none;
   background: var(--Button-Gradient, linear-gradient(193deg, #9356DC -11.44%, #FF79DA 123.93%));
-  -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
   color: transparent;
   opacity: 1;
 }
@@ -317,8 +315,7 @@ a {
   height: 231px;
   width: 100%;
   border-radius: 15px 15px 0px 0px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   box-sizing: border-box;
 }
 .restaurants .restaurants__badge {
