@@ -97,9 +97,9 @@
   justify-content: center;
   align-items: center;
 }
-.title-menus:active .fa-solid {
+.title-menus:hover .fa-solid {
   display: initial;
-  animation: apparition-heart ease forwards;
+  animation: apparition-heart 2s ease forwards;
 }
 .title-menus .fa-solid {
   display: none;

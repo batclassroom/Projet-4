@@ -134,10 +134,10 @@ $font-family-txt: 'Roboto';
     justify-content: center;
     align-items: center;
     
-    &:active {
+    &:hover {
         .fa-solid{
         display: initial;        
-        animation: apparition-heart ease forwards;
+        animation: apparition-heart 2s ease forwards;
         }
     }    
     .fa-solid {
