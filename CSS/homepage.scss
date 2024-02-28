@@ -149,7 +149,7 @@ body {
     align-items: center;
     margin: 0;
     box-sizing: border-box;
-    min-width: 375px;
+    
 }
 
 .main-content {
@@ -172,7 +172,7 @@ a {
     position: absolute;
     z-index: 1;
     width: 100%;
-    height: 1410px;
+    height: 100%;
     background-color: $white-color;
     transform-origin: 50% bottom;
     animation: loader 1s ease forwards;
@@ -351,6 +351,7 @@ a {
         .fa-solid.fa-heart {
             display: none;
             background: $gradient-color;
+            -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             opacity: 1;

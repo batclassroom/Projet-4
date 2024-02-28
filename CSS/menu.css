@@ -44,7 +44,8 @@
 
 .menus-image {
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: flex;
   justify-content: center;
 }
@@ -103,7 +104,8 @@
 .title-menus .fa-solid {
   display: none;
   background: var(--Button-Gradient, linear-gradient(193deg, #9356DC -11.44%, #FF79DA 123.93%));
-  background-clip: text;
+  -webkit-background-clip: text;
+          background-clip: text;
   color: transparent;
   opacity: 1;
 }
