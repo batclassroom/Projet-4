@@ -95,15 +95,14 @@ a {
   position: absolute;
   z-index: 1;
   width: 100%;
-  height: 130%;
+  height: 100em;
   background-color: #FFF;
-  transform-origin: 50% bottom;
-  animation: loader 2s ease forwards;
+  animation: loader 1s ease forwards;
   animation-delay: 1s;
 }
 
 .loader-letter {
-  font-size: 10vw;
+  font-size: 15em;
   color: #9356DC;
   animation: flash 1s linear forwards;
 }
