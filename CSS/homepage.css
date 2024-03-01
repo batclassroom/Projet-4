@@ -299,7 +299,11 @@ a {
 .restaurants .restaurants__card-restaurant:hover {
   transform: scale(1.03);
 }
-.restaurants .restaurants__card-restaurant:hover .fa-solid.fa-heart {
+.restaurants .restaurants__card-restaurant .restaurants__like {
+  width: 22px;
+  height: 22px;
+}
+.restaurants .restaurants__card-restaurant .restaurants__like:hover .fa-solid.fa-heart {
   display: initial;
   animation: apparition-heart 2s ease forwards;
 }

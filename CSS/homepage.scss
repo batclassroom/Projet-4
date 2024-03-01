@@ -341,12 +341,23 @@ a {
         @include card-restaurant-shadow;
         &:hover {
             transform: scale(1.03);
-            .fa-solid.fa-heart{
-                display: initial;
-                animation: apparition-heart 2s ease forwards;
-            }
+            // .fa-solid.fa-heart{
+            //     display: initial;
+            //     animation: apparition-heart 2s ease forwards;
+            // }
             
         }
+        .restaurants__like {
+            width: 22px;
+            height: 22px;
+            &:hover {
+                .fa-solid.fa-heart {
+                    display: initial;
+                    animation: apparition-heart 2s ease forwards;
+                }
+            }
+        }
+       
         .fa-solid.fa-heart {
             display: none;
             background: $gradient-color;
@@ -383,6 +394,7 @@ a {
         justify-content: space-between;
         padding: 16px 25px 12px 13px;
         color: $text-grey;
+        
     }
     .restaurants__txt-card-restaurant {
         display: flex;
