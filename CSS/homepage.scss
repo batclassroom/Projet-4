@@ -340,12 +340,7 @@ a {
         @include card-restaurant-radius();
         @include card-restaurant-shadow;
         &:hover {
-            transform: scale(1.03);
-            // .fa-solid.fa-heart{
-            //     display: initial;
-            //     animation: apparition-heart 2s ease forwards;
-            // }
-            
+            transform: scale(1.03);          
         }
         .restaurants__like {
             width: 22px;
